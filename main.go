@@ -18,7 +18,7 @@ func generateRandomElements(size int) []int {
 		return []int{}
 	}
 	m := make([]int, size)
-	for i := 0; i < size; i++ {
+	for i := range size {
 		m[i] = rand.Intn(size)
 	}
 	return m
@@ -30,7 +30,7 @@ func maximum(data []int) int {
 		return 0
 	}
 	max := data[0]
-	for i := 0; i < len(data); i++ {
+	for i := range data {
 		if data[i] > max {
 			max = data[i]
 		}
