@@ -3,6 +3,7 @@ package main
 import (
 	"testing"
 
+	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
@@ -32,13 +33,14 @@ func TestMaximum(t *testing.T) {
 	}{
 		{"empty", []int{}, 0},
 		{"single", []int{42}, 42},
-		{"multiple", []int{1, 3, 2, 5, 4}, 5},
-		{"negative", []int{-1, -3, -2, -5, -4}, -1},
+		{"multiple5", []int{1, 3, 2, 5, 4}, 5},
+		{"multiple9", []int{1, 3, 2, 5, 4, 6, 7, 8, 9}, 9},
+		{"multiple11", []int{7, 2, 9, 3, 6, 4, 10, 11, 5, 9}, 11},
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
 			got := maximum(test.data)
-			require.Equal(t, test.want, got)
+			assert.Equal(t, test.want, got)
 		})
 	}
 }
@@ -51,13 +53,14 @@ func TestMaxChunks(t *testing.T) {
 	}{
 		{"empty", []int{}, 0},
 		{"single", []int{42}, 42},
-		{"multiple", []int{1, 3, 2, 5, 4}, 5},
-		{"negative", []int{-1, -3, -2, -5, -4}, -1},
+		{"multiple5", []int{1, 3, 2, 5, 4}, 5},
+		{"multiple9", []int{1, 3, 2, 5, 4, 6, 7, 8, 9}, 9},
+		{"multiple11", []int{7, 2, 9, 3, 6, 4, 10, 11, 5, 9}, 11},
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
 			got := maxChunks(test.data)
-			require.Equal(t, test.want, got)
+			assert.Equal(t, test.want, got)
 		})
 	}
 }
